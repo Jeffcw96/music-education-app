@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* -------------Nav Bar-------------- */
+.logo {
+  max-width: 50px;
+}
+
+.nav-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  background-color: #010101;
+}
+
+.member-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.member-container li {
+  list-style: none;
+}
+
+.member-container a {
+  text-decoration: none;
+  padding: 5px 10px;
+  color: white;
+}
+
+.member-container a:last-child {
+  border-left: 1px solid white;
+}
+
+/* -------------Main Section-------------- */
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.main-section {
+  min-height: 100vh;
+  background-color:#010101;
+}
+
+.main-container {
+  padding: 30px 0;
+}
+
+.main-img {
+  width: 60%;
+}
+
+.main-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.main-desp {
+  width: 30%;
+  position: relative;
+}
+
+.main-desp h1 {
+  color: white;
+  font-size: 2rem;
+  line-height: 1.5;
+  position: relative;
+  margin-top: -30%;
+}
+
+.instructment-icon{
+  position:absolute;
+  display: flex;
+  bottom: -15vh;
+}
+
+.icon{
+  position:absolute;
+  animation: musicIcon 5s linear infinite alternate;
+  top: 0;
+  left: 180px;
+}
+
+.instructment-icon li{
+  list-style: none;
+  font-size: 25px;
+  margin: 0 10px;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+.instructment-icon li:hover{
+  font-size: 35px;
+  margin: 0;
+}
+
+@keyframes musicIcon{
+  0%{
+    top: 0;
+    left: 180px;
+  }
+  25%{
+    top:-10%;
+    left: 220px;
+  }
+
+  50%{
+    top: 0;
+    left: 250px;
+  }
+
+  75%{
+    top: 0;
+    left: 180px;
+  }
+}
+
+/* -------------Plan Section-------------- */
+.plan-section{
+  min-height: 100vh;
+  background-color: aliceblue;
+}
