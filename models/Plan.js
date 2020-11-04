@@ -1,4 +1,3 @@
-const { Decimal128, Int32 } = require('bson');
 const mongoose = require('mongoose');
 
 const PlanSchema = new mongoose.Schema({
@@ -7,7 +6,7 @@ const PlanSchema = new mongoose.Schema({
         required: true
     },
     price: {
-        type: Decimal128,
+        type: Number,
         required: true
     },
     features: {
@@ -16,5 +15,6 @@ const PlanSchema = new mongoose.Schema({
     }
 
 })
+
 
 module.exports = mongoose.model('plan', PlanSchema);
