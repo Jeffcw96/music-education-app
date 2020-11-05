@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "axios": "^0.21.0",
     "bcrypt": "^5.0.0",
     "config": "^3.3.2",
     "cors": "^2.8.5",
@@ -19,8 +20,8 @@
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
-    "saas": "npm start --prefix saas",
-    "dev": "concurrently \"npm run server\" \"npm run saas\""
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Jeff",
   "license": "MIT"

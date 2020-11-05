@@ -135,6 +135,22 @@ html{
 .plan-section{
   min-height: 100vh;
   background-color: #ffffff;
+  padding-top: 8vh;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.plan-section h2{
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.plan-container{
+  margin: 8vh 0;
+  display:flex;
+  justify-content: space-around;
 }
 
 .plan-card{
@@ -145,4 +161,27 @@ html{
   box-shadow: -1px 1px 5px 0px rgba(90,89,89,1);
   -webkit-box-shadow: -1px 1px 5px 0px rgba(90,89,89,1);
   -moz-box-shadow: -1px 1px 5px 0px rgba(90,89,89,1);
+}
+
+.package-title{
+  text-transform: capitalize;
+  margin-right: 15px; 
+}
+
+hr{
+  width: 60%;
+  margin: 5px auto;
+  background-color: #CCCCCC;
+  border-bottom: none;
+}
+
+.plan-feature{
+  margin: 10px 0 ;
+  font-size: 0.9rem;
+  list-style:none;
+}
+
+.plan-feature::before{
+  content: '✓';
+  margin: 0 15px 0 5px;
 }
