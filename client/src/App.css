@@ -143,29 +143,34 @@ html{
 }
 
 .plan-section h2{
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 8px;
 }
 
 .plan-container{
   margin: 8vh 0;
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .plan-card{
+  margin: 0 25px;
   width: 25%;
   border: 1px solid #DCDCDC;
   border-radius: 25px;
-  padding: 10px;
+  padding: 20px 10px;
   box-shadow: -1px 1px 5px 0px rgba(90,89,89,1);
   -webkit-box-shadow: -1px 1px 5px 0px rgba(90,89,89,1);
+  display: flex;
   -moz-box-shadow: -1px 1px 5px 0px rgba(90,89,89,1);
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .package-title{
   text-transform: capitalize;
   margin-right: 15px; 
+  font-size: 1.8rem;
 }
 
 hr{
@@ -177,11 +182,47 @@ hr{
 
 .plan-feature{
   margin: 10px 0 ;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   list-style:none;
+  width: 90%;
 }
 
-.plan-feature::before{
-  content: '✓';
-  margin: 0 15px 0 5px;
+.plan-feature-tick{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
+
+.tick{
+  margin: 0 5px;
+  font-size: 1.5rem;
+  width: 10%;
+}
+
+.price{
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.get-started{
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #1DB954;
+  background-color: #1DB954;
+  transition: all .3s;
+  text-align: center;
+  border-radius: 25px;
+  display: block;
+  padding: 15px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.get-started:hover{
+  background-color: #16cc68;
+  cursor: pointer;
+}
+

@@ -23,7 +23,7 @@ export default function Plans() {
 
             <div className='plan-container'>
                 {plans.map(plan => (
-                    <Card plan={plan} key={plan.id} />
+                    <Card plan={plan} key={plan._id} />
                 ))}
             </div>
 
