@@ -24,10 +24,10 @@ export default function Nav() {
                 </a>
             </ul>
             <ul className="member-container">
-                <Link to="/register">
+                <Link to="/login">
                     <li>Login</li>
                 </Link>
-                <Link to="login">
+                <Link to="/register">
                     <li>Register</li>
                 </Link>
             </ul>

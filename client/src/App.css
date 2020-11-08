@@ -226,3 +226,23 @@ hr{
   cursor: pointer;
 }
 
+
+/* -----------Footer--------------*/
+footer{
+  background-color: #F1F1F1;
+  padding: 15px 25%;
+}
+
+.social-icon{
+  display: flex;
+  margin-top: 10px;
+}
+
+.social-icon li{
+  list-style: none;
+  margin-right: 15px;
+}
+
+.social-icon img{
+  width: 35px;
+}

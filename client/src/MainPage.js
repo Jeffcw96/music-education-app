@@ -1,7 +1,5 @@
 import React from 'react'
 import Main from './main.jpg'
-import Nav from './Nav.js'
-
 
 export default function MainPage() {
     const specialCharOne = {
@@ -20,7 +18,6 @@ export default function MainPage() {
 
     return (
         <div className="main-section section">
-            <Nav />
             <div className="main-container">
                 <div className="main-img">
                     <img src={Main} alt="main photo" ></img>
