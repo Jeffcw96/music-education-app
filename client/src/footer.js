@@ -10,11 +10,14 @@ export default function Footer() {
             <div className="follow-us">
                 <p>Follow Us</p>
                 <ul className="social-icon">
-                    <li><a href="#"><img src={Facebook} alt="facebook" /></a></li>
-                    <li><a href="#"><img src={Instagram} alt="Instagram" /></a></li>
-                    <li><a href="#"><img src={Twitter} alt="Twitter" /></a></li>
-                    <li><a href="#"><img src={Youtube} alt="Youtube" /></a></li>
+                    <li><a href="/"><img src={Facebook} alt="facebook" /></a></li>
+                    <li><a href="/"><img src={Instagram} alt="Instagram" /></a></li>
+                    <li><a href="/"><img src={Twitter} alt="Twitter" /></a></li>
+                    <li><a href="/"><img src={Youtube} alt="Youtube" /></a></li>
                 </ul>
+            </div>
+            <div className="copy-right">
+                Copyright © 2020 JEFFDEVSLIFE. All Rights Reserved
             </div>
         </footer>
     )

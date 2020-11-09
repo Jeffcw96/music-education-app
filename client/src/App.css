@@ -226,11 +226,78 @@ hr{
   cursor: pointer;
 }
 
+/*-------------Register-------------*/
+.register-panel{
+  background-color: #eeeef1;
+  min-height: 80.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-guide{
+  display: flex;
+  position: absolute;
+  top: -35px;
+  left: 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.register-guide p{
+  font-size: 0.8rem;
+  letter-spacing: 1.5px;
+}
+
+
+.form-container{
+  width: 50%;
+  margin: 0 auto;
+  background-color: white;
+  position: relative;
+  padding: 25px;
+  border-radius:15px;
+  border: 1px solid white;
+}
+
+.form-container button{
+  margin: 25px auto 15px;
+  background-color: #00A400;
+  width: 35%;
+  border: 1px solid #00A400;
+  color: white;
+  padding: 10px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  display: block;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.form-container button:hover{
+  background-color: #14c914;
+}
+
+.form-input{
+  display: block;
+  width: 70%;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin: 20px auto;
+  border: 1px solid #767676;
+  border-radius: 5px;
+}
+
+
 
 /* -----------Footer--------------*/
 footer{
   background-color: #F1F1F1;
   padding: 15px 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .social-icon{

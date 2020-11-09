@@ -39,6 +39,9 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/plans", require("./routes/plan"));
+app.use("/auth", require("./routes/auth"));
+
+
 
 
 const PORT = process.env.PORT || 5000;
