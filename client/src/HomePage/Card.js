@@ -23,7 +23,6 @@ export default function Card({ plan }) {
     const renderAuthButton = () => {
         if (plan.price !== 0) {
             if (plan.package === 'premium') {
-                console.log("premium")
                 return <p className="price" style={marginTop}><span style={smallFont}>$</span>{plan.price}<span style={smallFont}> /month</span></p>
             } else {
                 return <p className="price"><span style={smallFont}>$</span>{plan.price}<span style={smallFont}> /month</span></p>
@@ -40,7 +39,7 @@ export default function Card({ plan }) {
                     <hr></hr>
                     <ul style={feature}>
                         {plan.features.map(feature => (
-                            <div className='plan-feature-tick'>
+                            <div className='plan-feature-tick' key={`${feature.package}-feature`}>
                                 <div className='tick'>✓</div>
                                 <li className="plan-feature">{feature}</li>
                             </div>

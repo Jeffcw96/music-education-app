@@ -17,7 +17,7 @@ export default function Footer() {
                 </ul>
             </div>
             <div className="copy-right">
-                Copyright © 2020 JEFFDEVSLIFE. All Rights Reserved
+                Copyright © 2020 JeffDevsLife. All Rights Reserved
             </div>
         </footer>
     )
