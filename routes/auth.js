@@ -22,7 +22,7 @@ router.post('/', [
         try {
             let user = await User.findOne({ email });
             if (user) {
-                return res.status(400).json({ error: 'User already exist' })
+                return res.status(400).json({ error: [{ msg: 'User already exist', param: 'userExist' }] })
             }
 
             const userField = {};
@@ -51,7 +51,7 @@ router.post('/', [
             //         res.json({ token })
             //     });
 
-            res.json({ message: "Registration Successful", status: "00" });
+            res.json({ registeredEmail: email, redirect: true });
 
         } catch (error) {
             console.error(error.message);

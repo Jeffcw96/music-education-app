@@ -284,13 +284,27 @@ hr{
   width: 70%;
   padding: 10px;
   font-size: 1.2rem;
-  margin: 20px auto;
+  margin: 20px auto 5px;
   border: 1px solid #767676;
   border-radius: 5px;
 }
 
 .error-input{
   border: 2px solid red;
+}
+
+.error-message{
+  display:none;
+  margin-bottom: none;
+  background-color: red;
+  color: white;
+  width: 70%;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.error-message.active{
+  display:block !important;
 }
 
 /* -----------Footer--------------*/

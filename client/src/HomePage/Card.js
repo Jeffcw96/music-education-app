@@ -39,7 +39,7 @@ export default function Card({ plan }) {
                     <hr></hr>
                     <ul style={feature}>
                         {plan.features.map(feature => (
-                            <div className='plan-feature-tick' key={`${feature.package}-feature`}>
+                            <div className='plan-feature-tick' key={`${feature}`}>
                                 <div className='tick'>✓</div>
                                 <li className="plan-feature">{feature}</li>
                             </div>

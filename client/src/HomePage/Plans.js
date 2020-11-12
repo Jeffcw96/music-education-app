@@ -1,5 +1,8 @@
 import { React, useState, useEffect } from 'react'
 import Card from './Card.js'
+import axios from 'axios'
+
+
 export default function Plans() {
 
     useEffect(() => {
@@ -10,10 +13,9 @@ export default function Plans() {
     ])
 
     const fetchPlans = async () => {
-        const data = await fetch("plans");
-        const plansData = await data.json();
-        console.log(plansData);
-        setPlans(plansData);
+        const result = await axios.get("plans");
+        console.log(result);
+        setPlans(result.data);
     };
 
     return (
