@@ -1,5 +1,5 @@
-import { React, useRef, useState, useEffect } from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { React, useRef, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios';
 
 export default function Register() {
@@ -16,19 +16,19 @@ export default function Register() {
     let [emailError, setEmailError] = useState('');
     let [passwordError, setPasswordError] = useState('');
     let [existError, setExistError] = useState('');
-    let [redirectData, setRedirect] = useState({
-        registeredEmail: '',
-        redirect: false
-    })
 
-    useEffect(() => {
-        if (redirectData.redirect) {
-            return <Redirect to={{
+    const history = useHistory();
+
+    function redirect(result) {
+        console.log("redirectData.redirect", result.redirect);
+        if (result.redirect) {
+            console.log("going to redirect");
+            history.push({
                 pathname: '/login',
-                state: { email: redirectData.registeredEmail }
-            }} />
+                state: { registeredEmail: result.registeredEmail }
+            })
         }
-    }, [redirectData.registeredEmail])
+    }
 
     async function registration() {
         try {
@@ -38,7 +38,6 @@ export default function Register() {
             const jsonBody = {}
             jsonBody.email = email.current.value;
             jsonBody.name = fullName.current.value;
-
 
             if (pDom.value !== cpDom.value) {
                 pDom.classList.add("error-input");
@@ -52,10 +51,11 @@ export default function Register() {
                 const response = await axios.post('http://localhost:5000/auth', jsonBody);
                 const result = response.data;
 
-                setRedirect(result)
+                redirect(result);
 
             }
         } catch (err) {
+            console.log('error', err);
             const errData = err.response.data;
 
             console.log("errData", errData);
@@ -77,8 +77,6 @@ export default function Register() {
             }
         }
     }
-
-
 
 
     return (
