@@ -30,7 +30,6 @@ export default function Card({ plan }) {
         }
     }
 
-    const TNC = 'Terms and conditions apply.'
     return (
         <div className='plan-card'>
             <div>

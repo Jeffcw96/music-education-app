@@ -1,7 +1,7 @@
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
-module.exports - function (req, res, next) {
+module.exports = function (req, res, next) {
 
     const tokenString = req.header("Authorization");
     console.log("token string", tokenString);
