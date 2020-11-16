@@ -1,10 +1,15 @@
 import { React, useState, useEffect, useRef } from 'react'
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import { setCookie, getCookie } from './Cookie'
-
+import {setCookie} from './Cookie.js'
 
 export default function Login() {
+    const TOKEN = {
+        EXPIRATION: 7
+    }
+
+    const history = useHistory();
+
     const location = useLocation();
     let [rEmail, setREmail] = useState('');
 
@@ -36,6 +41,16 @@ export default function Login() {
             setloginError('');
             LoginErrorDesp.current.classList.remove("active");
 
+            if(result.token !== ""){
+                let d = new Date();
+                d.setTime(d.getTime() + (TOKEN.EXPIRATION * 24 * 60 * 60 * 1000));
+                console.log("date",d.toUTCString());
+                setCookie("access-token", result.token, 7);
+                history.push({
+                    pathname:"/user"
+                })
+            }
+
             console.log("token", result.token);
 
         } catch (err) {
@@ -46,9 +61,6 @@ export default function Login() {
                 setloginError('Incorrect Email or Password');
                 LoginErrorDesp.current.classList.add("active");
             }
-
-
-
         }
     }
 

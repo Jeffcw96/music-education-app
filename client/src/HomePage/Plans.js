@@ -9,8 +9,7 @@ export default function Plans() {
         fetchPlans();
     }, [])
 
-    const [plans, setPlans] = useState([
-    ])
+    const [plans, setPlans] = useState([]);
 
     const fetchPlans = async () => {
         const result = await axios.get("plans");
