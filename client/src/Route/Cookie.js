@@ -1,11 +1,11 @@
 
-function setCookie(cName, cValue, days) {
+export function setCookie(cName, cValue, days) {
     var d = new Date();
     d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
     document.cookie = cName + "=" + cValue + ";" + "expires=" + d.toUTCString() + ";path/"
 }
 
-function getCookie(cName) {
+export function getCookie(cName) {
     var name = cName + "=";
     var allCookie = document.cookie.split(';');
     for (var i = 0; i < allCookie.length; i++) {
@@ -21,9 +21,9 @@ function getCookie(cName) {
     return "";
 }
 
-export{
-    setCookie,
-    getCookie
+export function deleteCookie(cName) {
+    document.cookie = cName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
+
 
 

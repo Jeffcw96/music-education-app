@@ -4,14 +4,12 @@ import Login from './Route/Login.js'
 import Checkout from './Route/Checkout.js'
 import './App.css';
 import Footer from './Footer.js'
-import Nav from './Nav.js'
 import User from './Route/User'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
     <Router>
-      <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/register" component={Register} />

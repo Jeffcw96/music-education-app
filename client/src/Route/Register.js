@@ -1,5 +1,6 @@
 import { React, useRef, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import Nav from '../Nav.js'
 import axios from 'axios';
 
 export default function Register() {
@@ -80,24 +81,27 @@ export default function Register() {
 
 
     return (
-        <div className="register-panel">
-            <div className="form-container">
-                <div className="register-guide">
-                    <h2>Create your Account</h2>
-                    <p>Already member?
+        <>
+            <Nav />
+            <div className="register-panel">
+                <div className="form-container">
+                    <div className="register-guide">
+                        <h2>Create your Account</h2>
+                        <p>Already member?
                     <Link to="/login">Login</Link>
-                    </p>
+                        </p>
+                    </div>
+                    <input type="text" placeholder="Full name" className="form-input" ref={fullName} />
+                    <p className="error-message" ref={nameErrorDesp}>{nameError}</p>
+                    <input type="text" placeholder="Email address" className="form-input" ref={email} />
+                    <p className="error-message" ref={emailErrorDesp}>{emailError}</p>
+                    <input type="password" placeholder="New Password" className="form-input" ref={password} />
+                    <p className="error-message" ref={passwordErrorDesp}>{passwordError}</p>
+                    <input type="password" placeholder="Confirm Password" className="form-input" ref={cPassword} />
+                    <p className="error-message" ref={userExistError}>{existError}</p>
+                    <button onClick={registration}>Sign Up</button>
                 </div>
-                <input type="text" placeholder="Full name" className="form-input" ref={fullName} />
-                <p className="error-message" ref={nameErrorDesp}>{nameError}</p>
-                <input type="text" placeholder="Email address" className="form-input" ref={email} />
-                <p className="error-message" ref={emailErrorDesp}>{emailError}</p>
-                <input type="password" placeholder="New Password" className="form-input" ref={password} />
-                <p className="error-message" ref={passwordErrorDesp}>{passwordError}</p>
-                <input type="password" placeholder="Confirm Password" className="form-input" ref={cPassword} />
-                <p className="error-message" ref={userExistError}>{existError}</p>
-                <button onClick={registration}>Sign Up</button>
             </div>
-        </div>
+        </>
     )
 }

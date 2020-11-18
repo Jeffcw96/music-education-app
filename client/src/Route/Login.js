@@ -1,7 +1,8 @@
 import { React, useState, useEffect, useRef } from 'react'
 import { useLocation, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
-import {setCookie} from './Cookie.js'
+import { setCookie } from './Cookie.js'
+import Nav from '../Nav.js'
 
 export default function Login() {
     const TOKEN = {
@@ -41,13 +42,14 @@ export default function Login() {
             setloginError('');
             LoginErrorDesp.current.classList.remove("active");
 
-            if(result.token !== ""){
+            if (result.token !== "") {
                 let d = new Date();
                 d.setTime(d.getTime() + (TOKEN.EXPIRATION * 24 * 60 * 60 * 1000));
-                console.log("date",d.toUTCString());
+                console.log("date", d.toUTCString());
                 setCookie("access-token", result.token, 7);
                 history.push({
-                    pathname:"/user"
+                    pathname: "/user",
+                    state: { isLogin: true }
                 })
             }
 
@@ -66,19 +68,22 @@ export default function Login() {
 
 
     return (
-        <div className="register-panel">
-            <div className="form-container">
-                <div className="register-guide">
-                    <h2>Welcome to Infimusic</h2>
-                    <p>New member?
+        <>
+            <Nav />
+            <div className="register-panel">
+                <div className="form-container">
+                    <div className="register-guide">
+                        <h2>Welcome to Infimusic</h2>
+                        <p>New member?
                     <Link to="/register">Register</Link>
-                    </p>
+                        </p>
+                    </div>
+                    <input type="text" placeholder="Email address" className="form-input" ref={email} />
+                    <input type="password" placeholder="New Password" className="form-input" ref={password} />
+                    <p className="error-message" ref={LoginErrorDesp}>{loginError}</p>
+                    <button onClick={login}>Sign In</button>
                 </div>
-                <input type="text" placeholder="Email address" className="form-input" ref={email} />
-                <input type="password" placeholder="New Password" className="form-input" ref={password} />
-                <p className="error-message" ref={LoginErrorDesp}>{loginError}</p>
-                <button onClick={login}>Sign In</button>
             </div>
-        </div>
+        </>
     )
 }
