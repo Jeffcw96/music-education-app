@@ -309,10 +309,174 @@ hr{
 
 /* -----------User--------------*/
 .user-page{
-  min-height: 75vh;
+  padding:0 5vw;
+  background-color: rgb(255, 241, 241);
+  margin: 15px 0 ;
+  border-radius: 25px;
+  width: 50%;
+}
+
+.user-page h1{
+  margin: 15px 0 10px 0;
+  font-size: 2.3rem;
+  letter-spacing: 1.5px;
+}
+
+.user-page h2{
+  margin-bottom: 30px;
+}
+
+.user-page p{
+  font-size: 1.5rem;
+  margin: 15px 0 ;
+}
+
+.user-container{
+  display:flex;
+  justify-content: center;
+  min-height: 82vh;
+  background-color: #17233C;
+}
+  
+.edit-profile{
+  position: relative;
+  margin: 35px 0 ;
+}
+
+.edit-profile input{
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.edit-profile::before{
+  position: absolute;
+  top: -21px;
+  left: 0;
+}
+
+.edit-profile.name::before{
+  content: 'Name';
+}
+
+.edit-profile.password::before{
+  content: 'Password';
+}
+
+.edit-profile.cpassword::before{
+  content: 'Confirm Password';
+}
+
+.profile-interface .edit{
+  display: block;
+  text-align: right;
+}
+
+.user-action-container{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.edit-action.button{
+  margin-left: 20px;
+}
+
+.edit-action.cancel{
+  font-size: 1rem;
+  color: rgba(46, 44, 44, 0.781);
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.edit-action.cancel:hover{
+  font-size: 1.1rem;
+  color:black;
 }
 
 
+.edit-action.save{
+  background-color: #1DB954;
+  width: 30%;
+  border: 1px solid #1DB954;
+  color: white;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.edit-action.save:hover{
+  width: 32%;
+  font-size: 1.1rem;
+}
+
+.profile-interface.edit.button{
+  border: 1px solid #757575;
+  padding: 8px 35px;
+  font-size: 1rem;
+  background-color: rgb(255, 241, 241);
+  border-radius: 25px;
+  color: rgba(27, 27, 27, 0.89);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.profile-interface.edit.button:hover{
+  padding: 9px 36px;
+  font-size: 1.1rem;
+  border-color: black;
+  color: black;
+}
+
+.subscription-header{
+  margin-top: 30px !important;
+}
+
+.subscription-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 15vh;
+}
+
+.subscription-container .plan{
+  background: rgb(219,0,196);
+  background: linear-gradient(90deg, rgba(219,0,196,1) 3%, rgba(170,9,173,1) 17%, rgba(125,0,119,1) 33%, rgba(115,4,99,1) 60%, rgba(121,3,159,1) 91%, rgba(116,0,166,1) 100%);
+  height: 15vh;
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.subscription-container .plan div{
+  margin-left: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
+
+.subscription-container .upgrade{
+  height: 15vh;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(3, 168, 233);
+}
+
+.subscription-container .upgrade a{
+  margin: 0 auto;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: black;
+  font-weight: bold;
+}
 
 /* -----------Footer--------------*/
 footer{

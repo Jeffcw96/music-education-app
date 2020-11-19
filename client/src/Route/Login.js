@@ -32,11 +32,9 @@ export default function Login() {
 
     async function login() {
         try {
-            //setCookie();
             const jsonBody = {}
             jsonBody.email = email.current.value;
             jsonBody.password = password.current.value;
-            //getCookie();
             const response = await axios.post('http://localhost:5000/auth/login', jsonBody);
             const result = response.data;
             setloginError('');
@@ -52,8 +50,6 @@ export default function Login() {
                     state: { isLogin: true }
                 })
             }
-
-            console.log("token", result.token);
 
         } catch (err) {
 
