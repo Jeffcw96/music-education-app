@@ -334,10 +334,11 @@ hr{
 .user-container{
   display:flex;
   justify-content: center;
-  min-height: 82vh;
+  min-height: 90vh;
   background-color: #17233C;
 }
   
+
 .edit-profile{
   position: relative;
   margin: 35px 0 ;
@@ -433,7 +434,7 @@ hr{
 }
 
 .subscription-header{
-  margin-top: 30px !important;
+  margin: 15vh 0 5vh;
 }
 
 .subscription-container{

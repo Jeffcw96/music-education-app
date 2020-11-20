@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useRef } from 'react'
+import { React, useEffect, useState } from 'react'
 import axios from 'axios'
 import { getCookie } from './Cookie.js'
 import { Link, useHistory } from 'react-router-dom'
@@ -10,11 +10,14 @@ export default function User() {
     let history = useHistory();
     let [user, setUser] = useState({})
     let [profile, setProfile] = useState(false)
-    const show = true
 
 
-    function editProfile() {
+    function editProfile(action) {
+        setProfile(action)
+    }
 
+    function updateUserName(name) {
+        setUser(curr => { return { ...curr, name } })
     }
 
     async function getUserInfo() {
@@ -44,16 +47,20 @@ export default function User() {
             <Nav />
             <div className="user-container">
                 <div className="user-page">
-                    {profile ? <Profile name={user.name} email={user.email} onClick={value => setProfile(value)} /> : <EditProfile name={user.name} showProfile={show} onClick={() => setProfile(!show)} />}
-                    <p className="subscription-header">Subscription</p>
-                    <div className="subscription-container">
-                        <div className="plan">
-                            <div>{user.subscription}</div>
-                        </div>
-                        <div className="upgrade">
-                            <Link to="/#Plan">
-                                Upgrade Now
-                            </Link>
+                    <h1>Account Overview</h1>
+                    <h2>Profile</h2>
+                    {profile ? <EditProfile name={user.name} edit={editProfile} token={getCookie('access-token')} updateUserName={updateUserName} /> : <Profile name={user.name} email={user.email} edit={editProfile} />}
+                    <div className="subscription-header">
+                        <p>Subscription</p>
+                        <div className="subscription-container">
+                            <div className="plan">
+                                <div>{user.subscription}</div>
+                            </div>
+                            <div className="upgrade">
+                                <Link to="/#Plan">
+                                    Upgrade Now
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
