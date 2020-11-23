@@ -13,7 +13,6 @@ export default function Plans() {
 
     const fetchPlans = async () => {
         const result = await axios.get("plans");
-        console.log(result);
         setPlans(result.data);
     };
 

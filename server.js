@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const connectDB = require('./config/db');
-const Plans = require('./models/Plan');
+const PriceSchema = require('./models/Price');
+const mongoose = require('mongoose');
 //Connect Database
 connectDB()
 
@@ -26,11 +27,13 @@ app.use(express.json({ extended: false }));
 app.use(cors());
 app.get("/", async (req, res) => {
     try {
-        let plans = [{ package: freePlan.package, price: freePlan.price, features: freePlan.features },
-        { package: premiumPlan.package, price: premiumPlan.price, features: premiumPlan.features },
-        { package: ultimatePlan.package, price: ultimatePlan.price, features: ultimatePlan.features }];
+        const Premium = mongoose.model('premium', PriceSchema);
+        const Ultimate = mongoose.model('ultimate', PriceSchema);
+        let premiumPlans = [{ duration: 1, price: 29.99 }, { duration: 2, price: 49.99 }, { duration: 6, price: 139.99 }];
+        let ultimatePlans = [{ duration: 1, price: 39.99 }, { duration: 2, price: 55.55 }, { duration: 6, price: 185.55 }];
 
-        await Plans.insertMany(plans)
+        await Premium.insertMany(premiumPlans);
+        await Ultimate.insertMany(ultimatePlans);
         res.json({ msg: "good to go" })
     } catch (error) {
         console.error("error in posting moongose", error.message);
