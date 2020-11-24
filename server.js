@@ -44,7 +44,7 @@ app.get("/", async (req, res) => {
 app.use("/plans", require("./routes/plan"));
 app.use("/auth", require("./routes/auth"));
 app.use("/user", require("./routes/user"));
-
+app.use("/payment", require("./routes/payment"));
 
 
 const PORT = process.env.PORT || 5000;

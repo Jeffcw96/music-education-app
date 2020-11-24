@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import SelectedPlan from './SelectedPlan.js';
 import MoreDeals from './MoreDeals.js';
-
+import Paypal from './Paypal.js';
 export default function Plan() {
     const { id } = useParams();
     console.log("id", id)
@@ -39,6 +39,7 @@ export default function Plan() {
             <Nav />
             <SelectedPlan plan={id} detail={originalPlan} />
             <MoreDeals deals={detail} />
+            <Paypal />
         </div>
     )
 }
