@@ -10,11 +10,11 @@ export default function Plan() {
     console.log("id", id)
     let [detail, setDetail] = useState([]);
     let [originalPlan, setOriginalPlan] = useState({});
-
+    let [duration, setDuration] = useState(1)
     async function planDetails() {
         try {
             if (id !== "free") {
-                const response = await axios.get(`http://localhost:5000/plans/package?q=${id}`);
+                const response = await axios.get(`/plans/package?q=${id}`);
                 console.log("response", response)
                 const result = response.data;
                 let individualPlan = result.find(data => {
@@ -32,14 +32,20 @@ export default function Plan() {
         planDetails();
     }, [])
 
+    function updatePlan(plan){
+        setOriginalPlan(plan)
+        if(plan.duration !== duration){
+            setDuration(plan.duration);
+        }
+    }
 
 
     return (
         <div>
             <Nav />
-            <SelectedPlan plan={id} detail={originalPlan} />
-            <MoreDeals deals={detail} />
-            <Paypal />
+            <SelectedPlan plan={id} detail={originalPlan} duration={duration}/>
+            <MoreDeals deals={detail} updatePlan={updatePlan}/>
+
         </div>
     )
 }

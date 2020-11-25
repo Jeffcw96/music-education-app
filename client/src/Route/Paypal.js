@@ -1,7 +1,8 @@
 import { React, useEffect } from 'react'
 
-export default function Paypal() {
+export default function Paypal({color,shape}) {
     useEffect(() => {
+        
         window.paypal.Button.render({
             env: 'sandbox', // Or 'production'
             // Set up the payment:
@@ -9,15 +10,15 @@ export default function Paypal() {
 
             locale: 'en_US',
             style: {
-                size: 'medium',
-                color: 'blue',
-                shape: 'pill',
+                size: 'small',
+                color: color,
+                shape: shape,
                 label: 'checkout',
-                tagline: 'true'
+                tagline: 'false'
             },
             payment: function (data, actions) {
                 // 2. Make a request to your server
-                return actions.request.post('http://localhost:5000/payment/create-payment/')
+                return actions.request.post('/payment/create-payment/')
                     .then(function (res) {
                         // 3. Return res.id from the response
                         return res.id;
@@ -27,7 +28,7 @@ export default function Paypal() {
             // 1. Add an onAuthorize callback
             onAuthorize: function (data, actions) {
                 // 2. Make a request to your server
-                return actions.request.post('http://localhost:5000/payment/execute-payment/', {
+                return actions.request.post('/payment/execute-payment/', {
                     paymentID: data.paymentID,
                     payerID: data.payerID
                 })
@@ -45,7 +46,6 @@ export default function Paypal() {
     }, []);
     return (
         <div>
-            <h1>Paypal Integration</h1>
             <div id="paypal-button"></div>
         </div>
     )

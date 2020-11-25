@@ -22,7 +22,7 @@ export default function User() {
 
     async function getUserInfo() {
         try {
-            const response = await axios.get('http://localhost:5000/user', {
+            const response = await axios.get('/user', {
                 headers: { 'Authorization': 'Bearer ' + getCookie('access-token') }
             })
             const result = response.data;

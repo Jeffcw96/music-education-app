@@ -35,7 +35,7 @@ export default function Login() {
             const jsonBody = {}
             jsonBody.email = email.current.value;
             jsonBody.password = password.current.value;
-            const response = await axios.post('http://localhost:5000/auth/login', jsonBody);
+            const response = await axios.post('/auth/login', jsonBody);
             const result = response.data;
             setloginError('');
             LoginErrorDesp.current.classList.remove("active");

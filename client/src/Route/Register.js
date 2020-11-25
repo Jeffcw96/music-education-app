@@ -49,7 +49,7 @@ export default function Register() {
                 pDom.classList.remove("error-input");
                 cpDom.classList.remove("error-input");
 
-                const response = await axios.post('http://localhost:5000/auth', jsonBody);
+                const response = await axios.post('/auth', jsonBody);
                 const result = response.data;
 
                 redirect(result);
