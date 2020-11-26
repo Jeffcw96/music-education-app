@@ -1,7 +1,10 @@
-import React from 'react'
+import { React, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Paypal from './Paypal.js'
 export default function SelectedPlan({ plan, detail, duration }) {
+    useEffect(() => {
+        console.log("hahahaha");
+    }, [duration, plan, detail])
     return (
         <div className="individual-plan-container">
             <div className="wrap">

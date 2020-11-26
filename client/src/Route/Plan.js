@@ -32,19 +32,25 @@ export default function Plan() {
         planDetails();
     }, [])
 
-    function updatePlan(plan){
+
+
+    function updatePlan(plan) {
         setOriginalPlan(plan)
-        if(plan.duration !== duration){
+        if (plan.duration !== duration) {
             setDuration(plan.duration);
         }
     }
+
+    useEffect(() => {
+        console.log("hmmm");
+    }, [originalPlan])
 
 
     return (
         <div>
             <Nav />
-            <SelectedPlan plan={id} detail={originalPlan} duration={duration}/>
-            <MoreDeals deals={detail} updatePlan={updatePlan}/>
+            <SelectedPlan plan={id} detail={originalPlan} duration={duration} />
+            <MoreDeals deals={detail} updatePlan={updatePlan} />
 
         </div>
     )

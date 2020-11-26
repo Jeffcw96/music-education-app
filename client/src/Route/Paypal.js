@@ -1,11 +1,10 @@
 import { React, useEffect } from 'react'
 import { getCookie } from './Cookie.js'
 import { useHistory } from 'react-router-dom'
-import axios from 'axios'
 
 export default function Paypal({ color, shape, plan, duration }) {
     const history = useHistory()
-
+    console.log("paypal duration", duration);
     useEffect(() => {
         const accessToken = getCookie('access-token');
         window.paypal.Button.render({
@@ -22,7 +21,7 @@ export default function Paypal({ color, shape, plan, duration }) {
                 tagline: 'false'
             },
             payment: function (data, actions) {
-
+                console.log("plan duration", duration);
                 // 2. Make a request to your server
                 const formData = {
                     plan: plan,
@@ -74,7 +73,7 @@ export default function Paypal({ color, shape, plan, duration }) {
         }, '#paypal-button');
 
 
-    }, []);
+    }, [duration]);
     return (
         <div>
             <div id="paypal-button"></div>
