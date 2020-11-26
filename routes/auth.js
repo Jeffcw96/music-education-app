@@ -95,7 +95,7 @@ router.post("/login", [
         jwt.sign(
             payload,
             config.get('token'),
-            { expiresIn: 60*60*24*7 },
+            { expiresIn: 60 * 60 * 24 * 7 },
             (err, token) => {
                 if (err) throw (err);
                 res.json({ token })
@@ -106,9 +106,6 @@ router.post("/login", [
         console.error(error.message)
         res.status(500).json({ errors: "Server Error" })
     }
-
-
-
 })
 
 

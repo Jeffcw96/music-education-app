@@ -4,6 +4,7 @@ const app = express();
 const connectDB = require('./config/db');
 const PriceSchema = require('./models/Price');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 //Connect Database
 connectDB()
 
@@ -24,6 +25,7 @@ ultimatePlan.price = 39.99;
 ultimatePlan.features = ["customizable sheet playlist", "music sheet and chords in pdf", "online music editor (Pro)", "unlimited to every music sheet and chords", "unlimited online instrument class", "24/7 live support"];
 
 app.use(express.json({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.get("/", async (req, res) => {
     try {
