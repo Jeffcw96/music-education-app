@@ -1,11 +1,16 @@
-import { React, useEffect } from 'react'
+import { React, useEffect, useRef } from 'react'
 import { getCookie } from './Cookie.js'
 import { useHistory } from 'react-router-dom'
 
 export default function Paypal({ color, shape, plan, duration }) {
     const history = useHistory()
+    const palpalBtn = useRef();
     console.log("paypal duration", duration);
     useEffect(() => {
+
+        while (palpalBtn.current.firstChild) {
+            palpalBtn.current.removeChild(palpalBtn.current.firstChild);
+        }
         const accessToken = getCookie('access-token');
         window.paypal.Button.render({
             env: 'sandbox', // Or 'production'
@@ -70,13 +75,13 @@ export default function Paypal({ color, shape, plan, duration }) {
             onCancel: function (data) {
                 console.log("galaG")
             }
-        }, '#paypal-button');
+        }, palpalBtn.current);
 
 
     }, [duration]);
     return (
         <div>
-            <div id="paypal-button"></div>
+            <div ref={palpalBtn}></div>
         </div>
     )
 }
