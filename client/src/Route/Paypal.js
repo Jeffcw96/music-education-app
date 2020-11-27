@@ -7,7 +7,7 @@ export default function Paypal({ color, shape, plan, duration }) {
     const palpalBtn = useRef();
     console.log("paypal duration", duration);
     useEffect(() => {
-
+        //clear the childnode inside the dom before append new one to solve duplicated button issue
         while (palpalBtn.current.firstChild) {
             palpalBtn.current.removeChild(palpalBtn.current.firstChild);
         }
