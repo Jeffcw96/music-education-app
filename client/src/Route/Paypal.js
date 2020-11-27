@@ -1,11 +1,12 @@
-import { React, useEffect } from 'react'
+import { React, useEffect, useState, useRef } from 'react'
 import { getCookie } from './Cookie.js'
 import { useHistory } from 'react-router-dom'
 
 export default function Paypal({ color, shape, plan, duration }) {
     const history = useHistory()
-    console.log("paypal duration", duration);
+    const paypalBtn = useRef();
     useEffect(() => {
+        console.log("paypalBtn", paypalBtn);
         const accessToken = getCookie('access-token');
         window.paypal.Button.render({
             env: 'sandbox', // Or 'production'
@@ -23,12 +24,8 @@ export default function Paypal({ color, shape, plan, duration }) {
             payment: function (data, actions) {
                 console.log("plan duration", duration);
                 // 2. Make a request to your server
-                const formData = {
-                    plan: plan,
-                    duration: duration
-                };
                 if (accessToken) {
-                    return actions.request.post('http://localhost:5000/payment/create-payment/', {
+                    return actions.request.post('/payment/create-payment/', {
                         plan: plan,
                         duration: duration
                     }, {
@@ -68,7 +65,7 @@ export default function Paypal({ color, shape, plan, duration }) {
             },
 
             onCancel: function (data) {
-                console.log("galaG")
+                console.log("cancel")
             }
         }, '#paypal-button');
 
@@ -76,7 +73,7 @@ export default function Paypal({ color, shape, plan, duration }) {
     }, [duration]);
     return (
         <div>
-            <div id="paypal-button"></div>
+            <div id="paypal-button" ref={paypalBtn}></div>
         </div>
     )
 }
