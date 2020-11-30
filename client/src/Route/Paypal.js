@@ -2,10 +2,11 @@ import { React, useEffect, useRef } from 'react'
 import { getCookie } from './Cookie.js'
 import { useHistory } from 'react-router-dom'
 
-export default function Paypal({ color, shape, plan, duration }) {
+export default function Paypal({ color, shape, plan, duration, setPayment }) {
     const history = useHistory()
     const palpalBtn = useRef();
     console.log("paypal duration", duration);
+
     useEffect(() => {
         //clear the childnode inside the dom before append new one to solve duplicated button issue
         while (palpalBtn.current.firstChild) {
@@ -68,12 +69,17 @@ export default function Paypal({ color, shape, plan, duration }) {
                     }
                 })
                     .then(function (res) {
-                        // 3. Show the buyer a confirmation message.
-                    });
+                        if (res.status === "success") {
+                            setPayment("success");
+                        } else {
+                            setPayment("failed");
+                        }
+
+                    })
             },
 
             onCancel: function (data) {
-                console.log("galaG")
+                setPayment("cancel")
             }
         }, palpalBtn.current);
 

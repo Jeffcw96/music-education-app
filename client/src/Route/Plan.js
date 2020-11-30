@@ -4,13 +4,15 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import SelectedPlan from './SelectedPlan.js';
 import MoreDeals from './MoreDeals.js';
-import Paypal from './Paypal.js';
+
+
 export default function Plan() {
     const { id } = useParams();
     console.log("id", id)
     let [detail, setDetail] = useState([]);
     let [originalPlan, setOriginalPlan] = useState({});
-    let [duration, setDuration] = useState(1)
+    let [duration, setDuration] = useState(1);
+    let [payment, setPayment] = useState("");
     async function planDetails() {
         try {
             if (id !== "free") {
@@ -49,7 +51,7 @@ export default function Plan() {
     return (
         <div>
             <Nav />
-            <SelectedPlan plan={id} detail={originalPlan} duration={duration} />
+            <SelectedPlan plan={id} detail={originalPlan} duration={duration} setPayment={setPayment} />
             <MoreDeals deals={detail} updatePlan={updatePlan} />
 
         </div>

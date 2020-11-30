@@ -5,10 +5,11 @@ const auth = require('../middleware/auth');
 const PriceSchema = require('../models/Price');
 const User = require('../models/User');
 const mongoose = require('mongoose');
+const config = require('config');
 
-const CLIENT = 'AWlRSVeukdcjOodTkphIYzB6gHodJUtPXClR0v8TUtDKePv9aC6FSNCuD3O53zFsY-8D8x6u65gNHtmT';
-const SECRET = 'EHG4mWFegOixuGq6va4OjoaprMd0y0LIyPpnumYjWOpzpnhIfYsDnmGPi_ICZDTyx6yxthUJI7v5FW5m';
-const PAYPAL_API = 'https://api-m.sandbox.paypal.com';
+const CLIENT = config.get('CLIENT');
+const SECRET = config.get('SECRET');
+const PAYPAL_API = config.get('PAYPAL_API');
 
 router.post('/create-payment', auth, async (req, res) => {
     const { plan, duration } = req.body;
@@ -49,7 +50,7 @@ router.post('/create-payment', auth, async (req, res) => {
                 console.error(err);
                 return res.sendStatus(500);
             }
-            console.log("create payment response", response.body)
+
             // 3. Return the payment ID to the client
             res.json(
                 {
@@ -88,19 +89,32 @@ router.post('/execute-payment', auth, async (req, res) => {
             json: true
         },
         async function (err, response) {
-            if (err) {
-                console.error(err);
-                return res.sendStatus(500);
+            try {
+                if (err) {
+                    console.error(err);
+                    return res.sendStatus(500);
+                }
+                console.log(" payment success");
+                const updatedPlan = {};
+                let durationPeriod = null
+
+                if (duration === '1') {
+                    durationPeriod = 'individual';
+                } else {
+                    durationPeriod = duration + " month";
+                }
+                updatedPlan.subscription = plan + " " + durationPeriod
+                const updateUserPlan = await User.findOneAndUpdate({ _id: req.user.id }, updatedPlan)
+                // 4. Return a success response to the client
+                res.json(
+                    {
+                        status: 'success'
+                    });
+            } catch (error) {
+                console.error(error.message);
+                res.status(500).send("Server Error")
             }
-            console.log("success");
-            const updatedPlan = {};
-            updatedPlan.subscription = plan + " " + duration + " month"
-            const updateUserPlan = await User.findOneAndUpdate({ _id: req.user.id }, updatedPlan)
-            // 4. Return a success response to the client
-            res.json(
-                {
-                    status: 'success'
-                });
+
         });
 
 })

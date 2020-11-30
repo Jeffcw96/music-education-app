@@ -496,6 +496,8 @@ hr{
   border: 1px solid transparent;
   border-radius: 15px;
   position: relative;
+  min-height: 180px;
+  margin: 50px 0;
 }
 
 .individual-plan-container h2{

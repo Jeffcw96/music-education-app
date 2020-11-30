@@ -15,7 +15,8 @@ const UserSchema = new mongoose.Schema({
         required: true
     },
     subscription: {
-        type: String
+        type: String,
+        default: "Free"
     }
 })
 

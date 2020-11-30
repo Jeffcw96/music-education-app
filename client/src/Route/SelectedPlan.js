@@ -1,7 +1,7 @@
 import { React, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Paypal from './Paypal.js'
-export default function SelectedPlan({ plan, detail, duration }) {
+export default function SelectedPlan({ plan, detail, duration, setPayment }) {
     useEffect(() => {
         console.log("hahahaha");
     }, [duration, plan, detail])
@@ -12,7 +12,7 @@ export default function SelectedPlan({ plan, detail, duration }) {
                 <p style={{ display: plan === "free" ? 'none' : 'block' }} >From RM{detail.price}/ month</p>
                 <small>Terms and conditions apply. Open only to users who haven’t already tried Premium.</small>
                 <div className="paypal-button-container">
-                    <Paypal color="black" shape="rect" plan={plan} duration={duration} />
+                    <Paypal color="black" shape="rect" plan={plan} duration={duration} setPayment={setPayment} />
                 </div>
                 <div className="individual-plan-action">
                     <div>You chose</div>

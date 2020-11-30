@@ -30,6 +30,14 @@ export default function Card({ plan }) {
         }
     }
 
+    const planDetails = () => {
+        if (plan.package !== "free") {
+            return (<Link to={`/plan/${plan.package}`} style={anchor}>
+                <div className="get-started">GET STARTED</div>
+            </Link>)
+        }
+    }
+
     return (
         <div className='plan-card'>
             <div>
@@ -49,9 +57,7 @@ export default function Card({ plan }) {
                 {renderAuthButton()}
             </div>
 
-            <Link to={`/plan/${plan.package}`} style={anchor}>
-                <div className="get-started">GET STARTED</div>
-            </Link>
+            {planDetails()}
 
         </div>
     )
