@@ -29,10 +29,6 @@ export default function Paypal({ color, shape, plan, duration, setPayment }) {
             payment: function (data, actions) {
                 console.log("plan duration", duration);
                 // 2. Make a request to your server
-                const formData = {
-                    plan: plan,
-                    duration: duration
-                };
                 if (accessToken) {
                     return actions.request.post('http://localhost:5000/payment/create-payment/', {
                         plan: plan,
