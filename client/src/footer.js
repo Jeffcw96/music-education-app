@@ -20,5 +20,6 @@ export default function Footer() {
                 Copyright © 2020 JeffDevsLife. All Rights Reserved
             </div>
         </footer>
+
     )
 }
