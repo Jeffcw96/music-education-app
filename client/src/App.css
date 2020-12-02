@@ -131,6 +131,18 @@ html{
   }
 }
 
+/*--------------- Chart Section ------------*/
+
+.tr{
+  width: 100px;
+  height:50px;
+  border: 1px solid black;
+}
+
+
+
+
+
 /* -------------Plan Section-------------- */
 .plan-section{
   min-height: 100vh;
