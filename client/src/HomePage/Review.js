@@ -1,7 +1,11 @@
-import { React, useRef, useEffect } from 'react'
+import { React, useRef, useEffect, useState } from 'react'
 import { Pie } from 'react-chartjs-2';
 
 export default function Review() {
+    let [visible, setVisible] = useState(false);
+    const ref = useRef();
+    const chartLabel = useRef();
+    const onScreen = useOnScreen(ref, '-450px');
 
     const featureSection = {
         margin: '20vh 0',
@@ -9,27 +13,41 @@ export default function Review() {
         minHeight: '100vh'
     }
 
-    const chartLabel = useRef();
-    const features = useRef();
+    // Hook
+    function useOnScreen(ref, rootMargin = '0px') {
+        // State and setter for storing whether element is visible
+        const [isIntersecting, setIntersecting] = useState(false);
 
-    function Observer(target) {
-        console.log("target", target)
-        let option = {
-            //section fully intersect only apply the opacity class
-            threshold: 1,
-            rootMargin: "0px 0px -200px 0px"
-        }
+        useEffect(() => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    console.log("entry", entry);
+                    // Update our state when observer callback fires
+                    setIntersecting(entry.isIntersecting);
+                    if (entry.isIntersecting && !visible) {
+                        setVisible(true);
+                    }
 
-        const chartObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    console.log("intersectingggggggg")
+                },
+                {
+                    rootMargin
                 }
-            })
-        }, option);
-        chartObserver.observe(target);
-    }
+            );
+            if (ref.current) {
+                observer.observe(ref.current);
+            }
 
+            return () => {
+                observer.unobserve(ref.current);
+            };
+
+
+        }, []); // Empty array ensures that effect is only run on mount and unmount
+
+
+
+        return isIntersecting;
+    }
 
     const state = {
         labels: ['Music Competition', 'Music Challenge', '1 On 1 Mentor', 'Music Editor', 'Music Sheet & Chord', 'Instructment'],
@@ -55,31 +73,31 @@ export default function Review() {
         }]
     }
 
-    useEffect(() => {
-        console.log("bla bla");
-        Observer(features.current);
-    }, [])
+
 
     return (
-        <div style={featureSection} id='feature' ref={features}>
+        <div style={featureSection} id='feature' ref={ref}>
             <div>
-                <Pie data={state} width={1000} height={400}
-                    options={{
-                        cutoutPercentage: 90,
-                        responsive: true,
-                        animation: {
-                            duration: 2000,
-                            onComplete: function (e) {
-                                chartLabel.current.classList.add('active');
-                            }
-                        },
-                        tooltips: {
-                            enabled: false
-                        },
-                        legend: {
-                            display: false
-                        },
-                    }} />
+                {visible ?
+                    <Pie data={state} width={1000} height={400}
+                        options={{
+                            cutoutPercentage: 90,
+                            responsive: true,
+                            animation: {
+                                duration: 2000,
+                                onComplete: function (e) {
+                                    chartLabel.current.classList.add('active');
+                                }
+                            },
+                            tooltips: {
+                                enabled: false
+                            },
+                            legend: {
+                                display: false
+                            },
+                        }} />
+                    : null
+                }
             </div>
             <div className="chart-label-container">
                 <div className="chart-label-wrap" ref={chartLabel}>
