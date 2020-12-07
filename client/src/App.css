@@ -176,7 +176,6 @@ html{
 }
 
 .tr-des{
-  position: absolute;
   right: -5vw;
   max-width: 200px;
   top: -5vh;
@@ -185,7 +184,7 @@ html{
 .mr{
   position: absolute;
   right: 15vw;
-  top:40vh;
+  top:35vh;
   width: 200px;
   height: 100px;
 }
@@ -196,7 +195,6 @@ html{
 }
 
 .mr-des{
-  position: absolute;
   right: -4vw;
   max-width: 200px;
   top: -35px;
@@ -204,10 +202,10 @@ html{
 
 .br{
   position: absolute;
-  right: 20vw;
+  right: 25vw;
   width: 200px;
   height: 100px;
-  bottom: 10vh;
+  bottom: 15vh;
 }
 
 .br-joint{
@@ -219,7 +217,6 @@ html{
 }
 
 .br-des{
-  position: absolute;
   right: -5vw;
   max-width: 200px;
   top: 0vh;
@@ -227,7 +224,7 @@ html{
 
 .tl{
   position: absolute;
-  left: 30vw;
+  left: 22vw;
   width: 200px;
   height: 100px;
 }
@@ -241,19 +238,27 @@ html{
 }
 
 .tl-des{
-  position: absolute;
-  left: -15vw;
+  left: -12vw;
   max-width: 200px;
   top: -4vh;
   text-align: right;
 }
 
-.ml{
+
+.bl{
   position: absolute;
-  left: 25vw;
-  top:40vh;
-  width: 200px;
-  height: 100px;
+    left: 25vw;
+    width: 200px;
+    height: 100px;
+    bottom: 15vh;
+}
+
+.ml{
+    position: absolute;
+    left: 15vw;
+    top:35vh;
+    width: 200px;
+    height: 100px;
 }
 
 .ml-joint{
@@ -262,7 +267,6 @@ html{
 }
 
 .ml-des{
-  position: absolute;
   left: -14vw;
   max-width: 200px;
   top: -35px;
@@ -271,10 +275,10 @@ html{
 
 .bl{
   position: absolute;
-  left: 30vw;
+  left:25vw;
   width: 200px;
   height: 100px;
-  bottom: 10vh;
+  bottom: 15vh;
 }
 
 .bl-joint{
@@ -286,13 +290,135 @@ html{
 }
 
 .bl-des{
-  position: absolute;
   left: -15vw;
   max-width: 200px;
   top: 0vh;
   text-align: right;
 }
 
+.feature-section{
+  margin: 20vh 0px;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* .tl-des,.ml-des,.bl-des,.tr-des,.mr-des,.br-des{
+   position: absolute; 
+} */
+
+@media only screen and (max-width: 1350px){
+
+  .feature-section{
+    margin: 10vh 0px 0;
+  }
+
+  .tl{
+    left:18vw;
+  }
+
+  .ml{
+    left: 10vw;
+    top: 30vh;
+  }
+  
+  .bl{
+    left:20vw;
+    bottom: 25vh;
+  }
+
+  .tr{
+    right: 16vw;
+  }
+
+  .mr{
+    right: 10vw;
+    top: 30vh;
+  }
+
+
+  .br{
+    right:20vw;
+    bottom: 25vh;
+  }
+}
+
+@media screen and (max-width: 1024px) and (max-height: 1366px){
+  .feature-section{
+    min-height: 45vh;
+  }
+
+  .tr {
+    right: 10vw;
+    top: -2vh;
+  }
+
+  .mr {
+    right: 6vw;
+    top: 12vh;
+  }
+
+  .br {
+    right: 15vw;
+    bottom: 8vh;
+  }
+
+  .tl {
+    left: 13vw;
+    top: -1.5vh;
+  }
+
+  .ml {
+    left: 7vw;
+    top: 12vh;
+  }
+
+  .bl {
+    left: 14vw;
+    bottom: 8vh;
+  }
+
+}
+
+@media only screen and (max-height: 1400px){
+  .feature-section{
+    min-height: 45vh;
+  }
+}
+
+
+@media screen and (max-width: 768px) and (max-height: 1024px){
+  .tr {
+    right: 6vw;
+    top: -4vh;
+  }
+
+  .mr {
+    right: 0vw;
+    top: 10vh;
+}
+
+.br {
+  right: 10vw;
+  bottom: 6vh;
+}
+
+.tl {
+  left: 8vw;
+  top: -3.5vh;
+}
+
+.ml {
+  left: 0vw;
+  top: 10vh;
+}
+
+.bl {
+  left: 10vw;
+  bottom: 6vh;
+}
+
+
+}
 /* -------------Plan Section-------------- */
 .plan-section{
   min-height: 100vh;

@@ -7,12 +7,6 @@ export default function Review() {
     const chartLabel = useRef();
     const onScreen = useOnScreen(ref, '-450px');
 
-    const featureSection = {
-        margin: '20vh 0',
-        position: 'relative',
-        minHeight: '100vh'
-    }
-
     // Hook
     function useOnScreen(ref, rootMargin = '0px') {
         // State and setter for storing whether element is visible
@@ -21,7 +15,6 @@ export default function Review() {
         useEffect(() => {
             const observer = new IntersectionObserver(
                 ([entry]) => {
-                    console.log("entry", entry);
                     // Update our state when observer callback fires
                     setIntersecting(entry.isIntersecting);
                     if (entry.isIntersecting && !visible) {
@@ -76,7 +69,7 @@ export default function Review() {
 
 
     return (
-        <div style={featureSection} id='feature' ref={ref}>
+        <div className='feature-section' id='feature' ref={ref}>
             <div>
                 {visible ?
                     <Pie data={state} width={1000} height={400}
@@ -103,7 +96,7 @@ export default function Review() {
                 <div className="chart-label-wrap" ref={chartLabel}>
                     <div className="tr">
                         <div className="des-wrap">
-                            <div className='tr-joint'></div>
+                            {/* <div className='tr-joint'></div> */}
                             <div className="tr-des">
                                 <h3>Music Competition</h3>
                                 <p>improve your skills by participating the Competition with others</p>
@@ -112,7 +105,7 @@ export default function Review() {
                     </div>
                     <div className='mr'>
                         <div className="des-wrap">
-                            <div className='mr-joint'></div>
+                            {/* <div className='mr-joint'></div> */}
                             <div className="mr-des">
                                 <h3>Music Challenge</h3>
                                 <p>Challenge and test yourself after experienced our service</p>
@@ -121,7 +114,7 @@ export default function Review() {
                     </div>
                     <div className='br'>
                         <div className="des-wrap">
-                            <div className='br-joint'></div>
+                            {/* <div className='br-joint'></div> */}
                             <div className="br-des">
                                 <h3>1 On 1 Mentor</h3>
                                 <p>Book and Ask for Professional advice from our Partner</p>
@@ -130,7 +123,7 @@ export default function Review() {
                     </div>
                     <div className='tl'>
                         <div className="des-wrap">
-                            <div className='tl-joint'></div>
+                            {/* <div className='tl-joint'></div> */}
                             <div className="tl-des">
                                 <h3>Music Editor</h3>
                                 <p>Record and edit your stunning music together</p>
@@ -139,7 +132,7 @@ export default function Review() {
                     </div>
                     <div className='ml'>
                         <div className="des-wrap">
-                            <div className='ml-joint'></div>
+                            {/* <div className='ml-joint'></div> */}
                             <div className="ml-des">
                                 <h3>Instructment</h3>
                                 <p>We've cover more than 50 instructment</p>
@@ -148,7 +141,7 @@ export default function Review() {
                     </div>
                     <div className='bl'>
                         <div className="des-wrap">
-                            <div className='bl-joint'></div>
+                            {/* <div className='bl-joint'></div> */}
                             <div className="bl-des">
                                 <h3>Music Sheet & Chord</h3>
                                 <p>Enjoy the latest pop song and classic music Sheet</p>
