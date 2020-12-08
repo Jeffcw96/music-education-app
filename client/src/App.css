@@ -205,7 +205,7 @@ html{
   right: 25vw;
   width: 200px;
   height: 100px;
-  bottom: 15vh;
+  bottom: -8vh;
 }
 
 .br-joint{
@@ -250,7 +250,7 @@ html{
     left: 25vw;
     width: 200px;
     height: 100px;
-    bottom: 15vh;
+    bottom: -8vh;
 }
 
 .ml{
@@ -273,13 +273,6 @@ html{
   text-align: right;
 }
 
-.bl{
-  position: absolute;
-  left:25vw;
-  width: 200px;
-  height: 100px;
-  bottom: 15vh;
-}
 
 .bl-joint{
   width: 50px;
@@ -299,7 +292,6 @@ html{
 .feature-section{
   margin: 20vh 0px;
   position: relative;
-  min-height: 100vh;
 }
 
 /* .tl-des,.ml-des,.bl-des,.tr-des,.mr-des,.br-des{
@@ -307,9 +299,12 @@ html{
 } */
 
 @media only screen and (max-width: 1350px){
+  .main-section{
+    min-height:none;
+  }
 
   .feature-section{
-    margin: 10vh 0px 0;
+    margin: 10vh 0px;
   }
 
   .tl{
@@ -323,7 +318,7 @@ html{
   
   .bl{
     left:20vw;
-    bottom: 25vh;
+    bottom: -7vh;
   }
 
   .tr{
@@ -338,12 +333,12 @@ html{
 
   .br{
     right:20vw;
-    bottom: 25vh;
+    bottom: -7vh;
   }
 }
 
 @media screen and (max-width: 1024px) and (max-height: 1366px){
-  .feature-section{
+  .main-section{
     min-height: 45vh;
   }
 
@@ -359,7 +354,6 @@ html{
 
   .br {
     right: 15vw;
-    bottom: 8vh;
   }
 
   .tl {
@@ -374,7 +368,6 @@ html{
 
   .bl {
     left: 14vw;
-    bottom: 8vh;
   }
 
 }
@@ -956,3 +949,109 @@ footer{
   width: 35px;
 }
 
+@media only screen and (max-width: 600px){
+  .nav-bar{
+    padding: 10px 5px;
+  }
+
+  .main-section{
+    min-height:85vh;
+  }
+
+  .main-container{
+    display: block;
+  }
+
+  .main-img,.main-desp{
+    width:100%;
+  }
+
+  .main-desp h1 {
+    margin-top: -25%;
+    opacity: 0.8;
+  }
+
+  .instructment-icon{
+    bottom:-55px;
+  }
+
+  .tr-des p,.mr-des p, .br-des p, .tl-des p, .ml-des p, .bl-des p{
+    display: none;
+  }
+
+  .tr{
+    right:-35px;
+  }
+
+  .mr{
+    right: 50px;
+    top: 8vh;
+    width: 50px;
+  }
+
+  .br {
+    right: -65px;
+    bottom: 8vh;
+  }
+
+  .tl {
+    left: -45px;
+    top: -4vh;
+  }
+
+  .ml {
+    left: -24vw;
+    top: 9vh;
+  }
+
+  .bl {
+    left: 10vw;
+    bottom: 8vh;
+    width: 110px;
+  }
+  .feature-section{
+    margin-bottom: 0;
+    overflow: hidden;
+  }
+
+  .plan-container{
+    display: block;
+  }
+
+  .plan-card{
+    width: 95%;
+    margin: 15px auto;
+  }
+
+  footer{
+    padding: 0;
+  }
+
+  .chart-container{
+    margin-top: 50px;
+  }
+
+  .chart-label-container{
+    top: 45px;
+  }
+
+  .form-container,.user-page,.more-deal-container .wrap{
+    width: 95%;
+  }
+
+  .register-guide{
+    top:-60px;
+  }
+
+  .form-input{
+    width: 100%;
+  }
+
+  .edit-action.save{
+    width: 50%;
+  }
+
+  .individual-plan-container .wrap{
+    width: 90%;
+  }
+}

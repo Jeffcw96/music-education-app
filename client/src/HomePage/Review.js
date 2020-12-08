@@ -5,7 +5,7 @@ export default function Review() {
     let [visible, setVisible] = useState(false);
     const ref = useRef();
     const chartLabel = useRef();
-    const onScreen = useOnScreen(ref, '-450px');
+    const onScreen = useOnScreen(ref);
 
     // Hook
     function useOnScreen(ref, rootMargin = '0px') {
@@ -29,12 +29,6 @@ export default function Review() {
             if (ref.current) {
                 observer.observe(ref.current);
             }
-
-            return () => {
-                observer.unobserve(ref.current);
-            };
-
-
         }, []); // Empty array ensures that effect is only run on mount and unmount
 
 
@@ -70,7 +64,7 @@ export default function Review() {
 
     return (
         <div className='feature-section' id='feature' ref={ref}>
-            <div>
+            <div className="chart-container">
                 {visible ?
                     <Pie data={state} width={1000} height={400}
                         options={{
