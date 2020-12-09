@@ -63,12 +63,13 @@ export default function Nav() {
                 </Link>
             </div>
             <ul className="member-container">
+                <a href="/#feature" style={noBorder}>
+                    <li>Feature</li>
+                </a>
                 <a href="/#Plan" style={noBorder}>
                     <li>Plans</li>
                 </a>
-                <a href="/#Review" style={noBorder}>
-                    <li>Review</li>
-                </a>
+
             </ul>
             <ul className="member-container">
                 {isLogin ? UserLogin() : UserLogout()}

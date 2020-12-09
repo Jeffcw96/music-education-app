@@ -71,7 +71,9 @@ export default function Login() {
                     <div className="register-guide">
                         <h2>Welcome to Infimusic</h2>
                         <p>New member?
-                    <Link to="/register">Register</Link>
+                            <Link to="/register">Register</Link>
+                            <br />
+                            <Link to="/forgotPassword">Forgot Password</Link>
                         </p>
                     </div>
                     <input type="text" placeholder="Email address" className="form-input" ref={email} />

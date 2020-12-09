@@ -1,7 +1,7 @@
 import React from 'react'
 import MainPage from '../MainPage.js'
 import Plan from '../HomePage/Plans.js'
-import Review from '../HomePage/Review.js'
+import Feature from '../HomePage/Feature.js'
 import Nav from '../Nav.js'
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
             <Nav />
             <div className="home-page-container">
                 <MainPage />
-                <Review />
+                <Feature />
                 <Plan />
             </div>
         </>

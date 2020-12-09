@@ -588,6 +588,20 @@ hr{
   display:block !important;
 }
 
+.success{
+  display:none;
+  margin-bottom: none;
+  background-color: rgb(0, 255, 34);
+  color: white;
+  width: 70%;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.success.active{
+  display:block !important;
+}
+
 /* -----------User--------------*/
 .user-page{
   padding:0 5vw;

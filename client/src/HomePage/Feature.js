@@ -1,7 +1,7 @@
 import { React, useRef, useEffect, useState } from 'react'
 import { Pie } from 'react-chartjs-2';
 
-export default function Review() {
+export default function Feature() {
     let [visible, setVisible] = useState(false);
     const ref = useRef();
     const chartLabel = useRef();

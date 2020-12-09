@@ -88,7 +88,9 @@ export default function Register() {
                     <div className="register-guide">
                         <h2>Create your Account</h2>
                         <p>Already member?
-                    <Link to="/login">Login</Link>
+                        <Link to="/login">Login</Link>
+                            <br />
+                            <Link to="/forgotPassword">Forgot Password</Link>
                         </p>
                     </div>
                     <input type="text" placeholder="Full name" className="form-input" ref={fullName} />
