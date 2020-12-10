@@ -89,8 +89,6 @@ export default function Register() {
                         <h2>Create your Account</h2>
                         <p>Already member?
                         <Link to="/login">Login</Link>
-                            <br />
-                            <Link to="/forgotPassword">Forgot Password</Link>
                         </p>
                     </div>
                     <input type="text" placeholder="Full name" className="form-input" ref={fullName} />
