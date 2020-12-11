@@ -6,6 +6,8 @@ const bcrypt = require('bcrypt');
 const nodemailer = require("nodemailer");
 const hbs = require('nodemailer-express-handlebars');
 const config = require('config');
+const jwt = require('jsonwebtoken');
+const { check, validationResult } = require('express-validator');
 /*route: /user*/
 
 router.get('/', auth, async (req, res) => {
@@ -54,6 +56,7 @@ router.post('/update', auth, async (req, res) => {
 
 router.post('/forgotPassword', async (req, res) => {
     let { email } = req.body
+    let token = null
     if (email === "") {
         res.status(404).send("Email Not Found");
     }
@@ -69,6 +72,18 @@ router.post('/forgotPassword', async (req, res) => {
 
         } else {
 
+            const payload = {
+                user: {
+                    email: email
+                }
+            }
+
+            token = jwt.sign(
+                payload,
+                config.get('token'),
+                { expiresIn: '900s' });
+
+            console.log('token', token)
             let transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
@@ -93,6 +108,9 @@ router.post('/forgotPassword', async (req, res) => {
                 subject: "Reset Password", // Subject line
                 text: "Hello world?", // plain text body
                 template: "view", // html body
+                context: {                  // <=
+                    token: token,
+                }
             });
 
             console.log("Message sent: %s", info.messageId);
@@ -105,9 +123,41 @@ router.post('/forgotPassword', async (req, res) => {
         console.error(error.message)
         res.status(404).send("Not Found");
     }
-
-
-
 })
+
+router.get('/verifyEmail', auth, async (req, res) => {
+    try {
+        const checkEmail = await User.exists({ email: req.user.email })
+
+        if (!checkEmail) {
+            console.log('email not found');
+            res.status(404).send('Email Not Found')
+        } else {
+            res.json({ email: req.user.email })
+        }
+    } catch (error) {
+        console.error('failed to verify')
+        res.status(401).send('Invalid token')
+    }
+})
+
+router.post('/resetPassword', [[
+    check('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 })], auth], async (req, res) => {
+        try {
+            let { password } = req.body;
+            const json = {};
+            const salt = await bcrypt.genSalt(10);
+            json.password = await bcrypt.hash(password, salt);
+            const updatePassword = User.findOneAndUpdate({ email: req.user.email }, json)
+            console.log('updateProfile', updatePassword);
+            res.json("success");
+
+        } catch (error) {
+            console.error('Failed to reset')
+            res.status(401).send('Forbiden Access')
+        }
+
+
+    })
 
 module.exports = router;

@@ -6,15 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(178, 220, 228);
+            min-height: 100vh;
+        }
+
+        .content {
+            border: 1px solid rgb(172, 172, 172);
+            border-radius: 15px;
+            padding: 30px 50px;
+            background-color: white;
+        }
+
         h1 {
-            color: red;
+            margin-bottom: 25px;
+        }
+
+        p {
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 15px 30px;
+            background: #0cac0c;
+            color: white;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <h1>Hello jeff 123</h1>
+    <div class="content">
+        <h1>Forgot Password</h1>
+        <p>We've receive your request to reset your password. <br /> Kindly click the button below to set your new
+            password.</p>
+        <div style="text-align:center">
+            <a href='http://localhost:3000/resetPassword?token={{token}}' class="button">
+                <button>RESET PASSWORD</button>
+            </a>
+        </div>
+    </div>
 </body>
-
 
 </html>
