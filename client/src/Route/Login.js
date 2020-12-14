@@ -3,6 +3,7 @@ import { useLocation, Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { setCookie } from './Cookie.js'
 import Nav from '../Nav.js'
+import Footer from '../Footer.js'
 
 export default function Login() {
     const TOKEN = {
@@ -82,6 +83,7 @@ export default function Login() {
                     <button onClick={login}>Sign In</button>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

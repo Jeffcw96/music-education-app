@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import SelectedPlan from './SelectedPlan.js';
 import MoreDeals from './MoreDeals.js';
+import Footer from '../Footer.js';
 
 
 export default function Plan() {
@@ -83,6 +84,7 @@ export default function Plan() {
                     {paymentMessage()}
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

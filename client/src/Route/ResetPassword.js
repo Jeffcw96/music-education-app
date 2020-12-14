@@ -1,7 +1,8 @@
 import { React, useRef, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { setCookie, getCookie } from './Cookie'
-import Nav from '../Nav.js'
+import Nav from '../Nav.js';
+import Footer from '../Footer';
 import axios from 'axios';
 
 export default function ResetPassword() {
@@ -87,6 +88,7 @@ export default function ResetPassword() {
                     <p className={`success ${success ? "active" : null}`}>Success !! You will be navigate to Login Page in few seconds</p>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { getCookie } from './Cookie.js'
 import { Link, useHistory } from 'react-router-dom'
 import Nav from '../Nav.js'
+import Footer from '../Footer.js'
 import EditProfile from './EditProfile.js'
 import Profile from './Profile.js'
 
@@ -64,8 +65,8 @@ export default function User() {
                         </div>
                     </div>
                 </div>
-
             </div>
+            <Footer />
         </>
     )
 }

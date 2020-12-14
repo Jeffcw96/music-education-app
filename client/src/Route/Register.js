@@ -1,6 +1,7 @@
 import { React, useRef, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import Nav from '../Nav.js'
+import Footer from '../Footer.js'
 import axios from 'axios';
 
 export default function Register() {
@@ -102,6 +103,7 @@ export default function Register() {
                     <button onClick={registration}>Sign Up</button>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

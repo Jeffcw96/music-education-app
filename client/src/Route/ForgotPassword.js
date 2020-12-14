@@ -1,6 +1,7 @@
 import { React, useRef, useState } from 'react'
 import Nav from '../Nav.js'
 import axios from 'axios';
+import Footer from '../Footer.js'
 
 export default function ForgotPassword() {
     let [emailStatus, setEmailStatus] = useState(null)
@@ -41,6 +42,7 @@ export default function ForgotPassword() {
 
                 </div>
             </div>
+            <Footer />
         </>
     )
 }

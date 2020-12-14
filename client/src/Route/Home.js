@@ -3,6 +3,7 @@ import MainPage from '../MainPage.js'
 import Plan from '../HomePage/Plans.js'
 import Feature from '../HomePage/Feature.js'
 import Nav from '../Nav.js'
+import Footer from '../Footer.js'
 
 export default function Home() {
     return (
@@ -13,6 +14,7 @@ export default function Home() {
                 <Feature />
                 <Plan />
             </div>
+            <Footer />
         </>
     )
 }
