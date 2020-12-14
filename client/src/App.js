@@ -6,6 +6,7 @@ import User from './Route/User'
 import Plan from './Route/Plan'
 import ForgotPassword from './Route/ForgotPassword.js'
 import ResetPassword from './Route/ResetPassword.js'
+import Footer from './Footer.js'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Fragment } from 'react';
 
