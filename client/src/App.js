@@ -2,7 +2,6 @@ import Home from './Route/Home.js'
 import Register from './Route/Register.js'
 import Login from './Route/Login.js'
 import './App.css';
-import Footer from './Footer'
 import User from './Route/User'
 import Plan from './Route/Plan'
 import ForgotPassword from './Route/ForgotPassword.js'
@@ -21,7 +20,6 @@ function App() {
         <Route path="/user" component={User} />
         <Route path="/plan/:id" component={Plan} />
       </Switch>
-      <Footer />
     </Router>
 
   );
