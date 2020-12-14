@@ -2,7 +2,7 @@ import Home from './Route/Home.js'
 import Register from './Route/Register.js'
 import Login from './Route/Login.js'
 import './App.css';
-import Footer from './Footer.js'
+import Footer from './Footer'
 import User from './Route/User'
 import Plan from './Route/Plan'
 import ForgotPassword from './Route/ForgotPassword.js'
