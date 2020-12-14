@@ -148,8 +148,7 @@ router.post('/resetPassword', [[
             const json = {};
             const salt = await bcrypt.genSalt(10);
             json.password = await bcrypt.hash(password, salt);
-            const updatePassword = User.findOneAndUpdate({ email: req.user.email }, json)
-            console.log('updateProfile', updatePassword);
+            const updatePassword = await User.findOneAndUpdate({ email: req.user.email }, json)
             res.json("success");
 
         } catch (error) {

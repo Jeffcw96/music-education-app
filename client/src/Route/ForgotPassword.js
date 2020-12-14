@@ -38,6 +38,7 @@ export default function ForgotPassword() {
                     <p className={`success ${emailStatus ? "active" : ""}`}>Please check your email for New Password</p>
                     <p className={`error-message ${emailStatus === false ? "active" : ""}`}>Invalid Email !</p>
                     <button onClick={resetPassword}>Reset Password</button>
+
                 </div>
             </div>
         </>

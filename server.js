@@ -27,21 +27,21 @@ ultimatePlan.features = ["customizable sheet playlist", "music sheet and chords 
 app.use(express.json({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.get("/", async (req, res) => {
-    try {
-        const Premium = mongoose.model('premium', PriceSchema);
-        const Ultimate = mongoose.model('ultimate', PriceSchema);
-        let premiumPlans = [{ duration: 1, price: 29.99 }, { duration: 2, price: 49.99 }, { duration: 6, price: 139.99 }];
-        let ultimatePlans = [{ duration: 1, price: 39.99 }, { duration: 2, price: 55.55 }, { duration: 6, price: 185.55 }];
+// app.get("/", async (req, res) => {
+//     try {
+//         const Premium = mongoose.model('premium', PriceSchema);
+//         const Ultimate = mongoose.model('ultimate', PriceSchema);
+//         let premiumPlans = [{ duration: 1, price: 29.99 }, { duration: 2, price: 49.99 }, { duration: 6, price: 139.99 }];
+//         let ultimatePlans = [{ duration: 1, price: 39.99 }, { duration: 2, price: 55.55 }, { duration: 6, price: 185.55 }];
 
-        await Premium.insertMany(premiumPlans);
-        await Ultimate.insertMany(ultimatePlans);
-        res.json({ msg: "good to go" })
-    } catch (error) {
-        console.error("error in posting moongose", error.message);
-        res.status(500).send("Server Error")
-    }
-});
+//         await Premium.insertMany(premiumPlans);
+//         await Ultimate.insertMany(ultimatePlans);
+//         res.json({ msg: "good to go" })
+//     } catch (error) {
+//         console.error("error in posting moongose", error.message);
+//         res.status(500).send("Server Error")
+//     }
+// });
 
 app.use("/plans", require("./routes/plan"));
 app.use("/auth", require("./routes/auth"));

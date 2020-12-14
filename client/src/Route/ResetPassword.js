@@ -84,7 +84,7 @@ export default function ResetPassword() {
                     <p className={`error-message ${resetError ? "active" : null}`} >{passwordError}</p>
                     <button onClick={resetPassword} disabled={invalid}>Submit</button>
                     <p className={`error-message ${invalid ? "active" : null}`}>Session Expired</p>
-                    <p className={`success ${success ? "active" : null}`}>Success</p>
+                    <p className={`success ${success ? "active" : null}`}>Success !! You will be navigate to Login Page in few seconds</p>
                 </div>
             </div>
         </>
