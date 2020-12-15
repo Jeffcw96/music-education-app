@@ -2,9 +2,6 @@
   "name": "music-app",
   "version": "1.0.0",
   "description": "",
-  "engines": {
-    "node": "12.19.0"
-  },
   "main": "server.js",
   "dependencies": {
     "bcrypt": "^5.0.0",
