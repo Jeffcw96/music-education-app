@@ -1,9 +1,0 @@
-{
-    "mongoURI": "mongodb+srv://jeffcw96:jeffcw96@devconnector.702cb.mongodb.net/music-web-app?retryWrites=true&w=majority",
-    "token": "jeff@96DevsLife",
-    "CLIENT": "AWlRSVeukdcjOodTkphIYzB6gHodJUtPXClR0v8TUtDKePv9aC6FSNCuD3O53zFsY-8D8x6u65gNHtmT",
-    "SECRET": "EHG4mWFegOixuGq6va4OjoaprMd0y0LIyPpnumYjWOpzpnhIfYsDnmGPi_ICZDTyx6yxthUJI7v5FW5m",
-    "PAYPAL_API": "https://api-m.sandbox.paypal.com",
-    "EMAIL": "jeffdevslife@gmail.com",
-    "PASSWORD": "ccw961117"
-}
